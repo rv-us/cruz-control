@@ -1,3 +1,5 @@
+import sys
+print(sys.version)
 import cv2, queue, threading
 class VideoCapture:
     def __init__(self, name):
@@ -21,3 +23,15 @@ class VideoCapture:
 
     def read(self):
         return self.q.get()
+
+
+
+if __name__ == '__main__':
+    cam = VideoCapture(1)
+    
+    while True:
+        cv2.imshow("frame1",cam.read())
+
+        if cv2.waitKey(1) == ord('q'):
+            break
+
